@@ -4,6 +4,10 @@ docker container update --restart=always 容器名字
 
 docker ps: 查看容器信息
 
+docker kill ID： 杀死container
+
+
+
 ### bili 动态rss
 
 ```bash
