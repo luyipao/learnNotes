@@ -269,3 +269,46 @@ section 的七个等级，给分单元的狂热爱好者。`\part` and `\chapter
 - 5 `\subparagraph{subparagraph}`
 
 figure环境中，latex放在caption后面
+
+
+
+## 矢量图
+
+latex 支持矢量图格式 `svg`, `eps`, `pdf`
+
+matlab 支持导出的矢量图格式 `PDF`、`EPS`  `EMF`
+
+由于eps没有颜色，我建议选择PDF格式，此外PDF格式还具有更小的体积
+
+## minipage
+
+https://www.sascha-frank.com/latex-minipage.html
+
+When adjusting the choices is: c (for centers) t (for top) and b (for bottom). By default, c is used for centering. It is aligned by t and/or b at the highest (top line) and/or at the lowest line (bottom line).
+
+Besides there are still further options, which however in practical application the minipage does not play a role like the height and the adjustment (again c, t and b) within the minipage.
+
+Example of further options
+
+```
+\begin{minipage}[t][5cm][b]{0,5\textwidth}
+```
+
+This minipage now has a defined height of 5cm, and the content will now be aligned to the bottom of the minipage.
+
+A mistake that is often made is, there is a blank line between the \end{minipage} and \begin{minipage} left. Then the pages are no longer together.
+
+minipage指定宽度，而高度会随着内容自动调整。为了让两个并列的minipage中的图片具有相同的size，我们需要固定二者的高度即可，
+
+## linewidth textwidth
+
+- `\hsize` is a TeX primitive that should not be usually used in LaTeX
+- `\textwidth` is the (constant) width of the total text block
+- `\columnwidth` is the (constant) width of a single column of text
+  (which is the same as `\textwidth` for a single column document)
+- `\linewidth` is a variable that represents the *current* size of the line of text, whether inside a column or a minipage or a list
+
+In general, then, it's best to always use `\linewidth` if you are specifying the relative size of an image or a box, since it will adapt to the current situation.
+
+**Note**: `\linewidth` also appears to work in *table* columns, not just text columns. See [this answer](https://tex.stackexchange.com/a/78296/13270) for an example where a fixed-width parbox is used within a table cell (actually a multirow cell)
+
